@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
     res.send("HOME PAGE")
 })
 
-app.use("/users",userRouter);
+app.use("/user",userRouter);
 
 
 app.listen(process.env.PORT,async()=>{
