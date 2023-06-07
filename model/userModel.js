@@ -1,5 +1,5 @@
 const express = require("express");
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
 
 const userSchema = Schema({
     first_name:String,
@@ -13,9 +13,14 @@ const userSchema = Schema({
     age:Number,
 })
 
+const placeSchema =Schema({
+    place:[]
+})
 
+const PlaceModel = model("countrie",placeSchema)
 const usersModel = model("user",userSchema);
 
 module.exports = {
-    usersModel
+    usersModel,
+    PlaceModel
 }

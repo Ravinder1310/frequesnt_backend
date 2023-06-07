@@ -3,6 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const { connection } = require("./db");
 const { userRouter } = require("./routes/userRoutes");
+const { PlaceModel } = require("./model/userModel");
 const app = express();
 
 app.use(express.json())
@@ -13,6 +14,10 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/user",userRouter);
+app.get("/place",async(req,res)=>{
+  const data = await PlaceModel.find();
+  res.send(data)
+})
 
 
 app.listen(process.env.PORT,async()=>{
