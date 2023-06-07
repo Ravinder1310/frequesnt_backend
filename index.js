@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/user",userRouter);
-app.get("/place",async(req,res)=>{
+app.get("/countries",async(req,res)=>{
   const data = await PlaceModel.find();
   res.send(data)
 })
